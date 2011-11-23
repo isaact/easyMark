@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[jquery.easyMark]]></title>
   <link href="http://isaact.github.com/easyMark/atom.xml" rel="self"/>
   <link href="http://isaact.github.com/easyMark/"/>
-  <updated>2011-11-22T19:34:56-06:00</updated>
+  <updated>2011-11-22T19:40:41-06:00</updated>
   <id>http://isaact.github.com/easyMark/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[isaact]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
