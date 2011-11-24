@@ -55,16 +55,26 @@
   <link rel="canonical" href="http://isaact.github.com/easyMark/source.html">
   <link href="/easyMark/favicon.png" rel="icon">
   <link href="/easyMark/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/easyMark/javascripts/modernizr-2.0.js"></script>
-  <script src="/easyMark/javascripts/ender.js"></script>
-  <script src="/easyMark/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+  <!-- <script src="/easyMark/javascripts/modernizr-2.0.js"></script> -->
+
+  <!-- <script src="/easyMark/javascripts/ender.js"></script>-->
+  <!-- <script src="/easyMark/javascripts/octopress.js" type="text/javascript"></script> -->
   <link href="/easyMark/atom.xml" rel="alternate" title="jquery.easyMark" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="jquery.easyMark.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#hcontrol form').submit(function(event){
+  event.preventDefault();
+  $("#searchPoem").easymark('removeHighlight');
+  $("#searchPoem").easymark('highlight', $("#search_box_input").val());
+});
+});
+</script>
 
 
   
@@ -307,6 +317,7 @@
 <span class='line-number'>184</span>
 <span class='line-number'>185</span>
 <span class='line-number'>186</span>
+<span class='line-number'>187</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/*</span>
 </span><span class='line'>
 </span><span class='line'><span class="cm"> jQuery easymark plugin</span>
@@ -334,6 +345,7 @@
 </span><span class='line'><span class="cm"> */</span>
 </span><span class='line'>
 </span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;yp!&quot;</span><span class="p">);</span>
 </span><span class='line'>	<span class="cm">/*</span>
 </span><span class='line'><span class="cm">	 * Map generated from ftp.unicode.org/Public/UNIDATA/UnicodeData.txt. Maps each</span>
 </span><span class='line'><span class="cm">	 * upper-case basic alphabet character in the A-Z range to a regex character</span>
@@ -419,7 +431,7 @@
 </span><span class='line'>		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;object&#39;</span> <span class="o">||</span> <span class="o">!</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>			<span class="k">return</span> <span class="nx">methods</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
 </span><span class='line'>		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>			<span class="nx">$</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Method &#39;</span> <span class="o">+</span> <span class="nx">method</span> <span class="o">+</span> <span class="s1">&#39; does not exist on jQuery.tooltip&#39;</span><span class="p">);</span>
+</span><span class='line'>			<span class="nx">$</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Method &#39;</span> <span class="o">+</span> <span class="nx">method</span> <span class="o">+</span> <span class="s1">&#39; does not exist on jQuery.easyMark&#39;</span><span class="p">);</span>
 </span><span class='line'>		<span class="p">}</span>
 </span><span class='line'>	<span class="p">};</span>
 </span><span class='line'>	<span class="cm">/*******************************</span>

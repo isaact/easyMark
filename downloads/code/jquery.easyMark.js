@@ -25,6 +25,7 @@
  */
 
 (function($) {
+alert("yp!");
 	/*
 	 * Map generated from ftp.unicode.org/Public/UNIDATA/UnicodeData.txt. Maps each
 	 * upper-case basic alphabet character in the A-Z range to a regex character
@@ -110,7 +111,7 @@
 		} else if( typeof method === 'object' || !method) {
 			return methods.init.apply(this, arguments);
 		} else {
-			$.error('Method ' + method + ' does not exist on jQuery.tooltip');
+			$.error('Method ' + method + ' does not exist on jQuery.easyMark');
 		}
 	};
 	/*******************************
