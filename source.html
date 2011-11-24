@@ -71,7 +71,9 @@ $(document).ready(function(){
 $('#hcontrol form').submit(function(event){
   event.preventDefault();
   $("#searchPoem").easymark('removeHighlight');
-  $("#searchPoem").easymark('highlight', $("#search_box_input").val());
+  if($("#search_box_input").val().length){
+    $("#searchPoem").easymark('highlight', $("#search_box_input").val());
+  }
 });
 });
 </script>
