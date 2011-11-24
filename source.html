@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Source - jquery.easyMark</title>
+  <meta name="author" content="isaact">
+
+  
+  <meta name="description" content="Source Nov 23rd, 2011 (jquery.easyMark.js) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://isaact.github.com/easyMark/source.html">
+  <link href="/easyMark/favicon.png" rel="icon">
+  <link href="/easyMark/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/easyMark/javascripts/modernizr-2.0.js"></script>
+  <script src="/easyMark/javascripts/ender.js"></script>
+  <script src="/easyMark/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/easyMark/atom.xml" rel="alternate" title="jquery.easyMark" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery.easyMark.js"></script>
+
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/easyMark/">jquery.easyMark</a></h1>
+  
+    <h2>An easy to use highlight plugin for jQuery</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/easyMark/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:isaact.github.com/easyMark" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/easyMark/">Demo</a></li>
+  <li><a href="/easyMark/source.html">Source</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Source</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-23T23:22:00-06:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2011</time></p>
+  </header>
+  
+  <figure class='code'><figcaption><span> (jquery.easyMark.js)</span> <a href='/easyMark/downloads/code/jquery.easyMark.js'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/*</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> jQuery easymark plugin</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Highlights multiple keywords in a given search area.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Based on work by Johann Burkhard &amp; Marcel Stör</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Marcel Stör</span>
+</span><span class='line'><span class="cm"> &lt;http://www.frightanic.com/projects/lenient-jquery-highlight-plugin-javascript/&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Johann Burkhard</span>
+</span><span class='line'><span class="cm"> &lt;http://johannburkard.de/blog/programming/javascript/dynacloud-a-dynamic-javascript-tag-keyword-cloud-with-jquery.html&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Copyright 2011 Isaac Tewolde for Thoora.com</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> MIT license.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * Highlights the given term in all text nodes (transitive) for which this</span>
+</span><span class='line'><span class="cm"> * function is called. If lenient == true the pattern matching will be case- and</span>
+</span><span class='line'><span class="cm"> * accent-insensitive. Otherwise it will simply be case-insensitive.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>	<span class="cm">/*</span>
+</span><span class='line'><span class="cm">	 * Map generated from ftp.unicode.org/Public/UNIDATA/UnicodeData.txt. Maps each</span>
+</span><span class='line'><span class="cm">	 * upper-case basic alphabet character in the A-Z range to a regex character</span>
+</span><span class='line'><span class="cm">	 * class that contains all variations (accented, unaccented, upper-case,</span>
+</span><span class='line'><span class="cm">	 * lower-case) of this character (e.g. A-&gt;[AaÄäå....]).</span>
+</span><span class='line'><span class="cm">	 */</span>
+</span><span class='line'>	<span class="kd">var</span> <span class="nx">charToAccentedCharClassMap</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>		<span class="s1">&#39;A&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Aa\xaa\xc0-\xc5\xe0-\xe5\u0100-\u0105\u01cd\u01ce\u0200-\u0203\u0226\u0227\u1d2c\u1d43\u1e00\u1e01\u1e9a\u1ea0-\u1ea3\u2090\u2100\u2101\u213b\u249c\u24b6\u24d0\u3371-\u3374\u3380-\u3384\u3388\u3389\u33a9-\u33af\u33c2\u33ca\u33df\u33ff\uff21\uff41]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;B&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Bb\u1d2e\u1d47\u1e02-\u1e07\u212c\u249d\u24b7\u24d1\u3374\u3385-\u3387\u33c3\u33c8\u33d4\u33dd\uff22\uff42]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;C&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Cc\xc7\xe7\u0106-\u010d\u1d9c\u2100\u2102\u2103\u2105\u2106\u212d\u216d\u217d\u249e\u24b8\u24d2\u3376\u3388\u3389\u339d\u33a0\u33a4\u33c4-\u33c7\uff23\uff43]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;D&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Dd\u010e\u010f\u01c4-\u01c6\u01f1-\u01f3\u1d30\u1d48\u1e0a-\u1e13\u2145\u2146\u216e\u217e\u249f\u24b9\u24d3\u32cf\u3372\u3377-\u3379\u3397\u33ad-\u33af\u33c5\u33c8\uff24\uff44]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;E&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Ee\xc8-\xcb\xe8-\xeb\u0112-\u011b\u0204-\u0207\u0228\u0229\u1d31\u1d49\u1e18-\u1e1b\u1eb8-\u1ebd\u2091\u2121\u212f\u2130\u2147\u24a0\u24ba\u24d4\u3250\u32cd\u32ce\uff25\uff45]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;F&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Ff\u1da0\u1e1e\u1e1f\u2109\u2131\u213b\u24a1\u24bb\u24d5\u338a-\u338c\u3399\ufb00-\ufb04\uff26\uff46]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;G&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Gg\u011c-\u0123\u01e6\u01e7\u01f4\u01f5\u1d33\u1d4d\u1e20\u1e21\u210a\u24a2\u24bc\u24d6\u32cc\u32cd\u3387\u338d-\u338f\u3393\u33ac\u33c6\u33c9\u33d2\u33ff\uff27\uff47]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;H&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Hh\u0124\u0125\u021e\u021f\u02b0\u1d34\u1e22-\u1e2b\u1e96\u210b-\u210e\u24a3\u24bd\u24d7\u32cc\u3371\u3390-\u3394\u33ca\u33cb\u33d7\uff28\uff48]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;I&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Ii\xcc-\xcf\xec-\xef\u0128-\u0130\u0132\u0133\u01cf\u01d0\u0208-\u020b\u1d35\u1d62\u1e2c\u1e2d\u1ec8-\u1ecb\u2071\u2110\u2111\u2139\u2148\u2160-\u2163\u2165-\u2168\u216a\u216b\u2170-\u2173\u2175-\u2178\u217a\u217b\u24a4\u24be\u24d8\u337a\u33cc\u33d5\ufb01\ufb03\uff29\uff49]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;J&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Jj\u0132-\u0135\u01c7-\u01cc\u01f0\u02b2\u1d36\u2149\u24a5\u24bf\u24d9\u2c7c\uff2a\uff4a]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;K&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Kk\u0136\u0137\u01e8\u01e9\u1d37\u1d4f\u1e30-\u1e35\u212a\u24a6\u24c0\u24da\u3384\u3385\u3389\u338f\u3391\u3398\u339e\u33a2\u33a6\u33aa\u33b8\u33be\u33c0\u33c6\u33cd-\u33cf\uff2b\uff4b]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;L&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Ll\u0139-\u0140\u01c7-\u01c9\u02e1\u1d38\u1e36\u1e37\u1e3a-\u1e3d\u2112\u2113\u2121\u216c\u217c\u24a7\u24c1\u24db\u32cf\u3388\u3389\u33d0-\u33d3\u33d5\u33d6\u33ff\ufb02\ufb04\uff2c\uff4c]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;M&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Mm\u1d39\u1d50\u1e3e-\u1e43\u2120\u2122\u2133\u216f\u217f\u24a8\u24c2\u24dc\u3377-\u3379\u3383\u3386\u338e\u3392\u3396\u3399-\u33a8\u33ab\u33b3\u33b7\u33b9\u33bd\u33bf\u33c1\u33c2\u33ce\u33d0\u33d4-\u33d6\u33d8\u33d9\u33de\u33df\uff2d\uff4d]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;N&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Nn\xd1\xf1\u0143-\u0149\u01ca-\u01cc\u01f8\u01f9\u1d3a\u1e44-\u1e4b\u207f\u2115\u2116\u24a9\u24c3\u24dd\u3381\u338b\u339a\u33b1\u33b5\u33bb\u33cc\u33d1\uff2e\uff4e]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;O&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Oo\xba\xd2-\xd6\xf2-\xf6\u014c-\u0151\u01a0\u01a1\u01d1\u01d2\u01ea\u01eb\u020c-\u020f\u022e\u022f\u1d3c\u1d52\u1ecc-\u1ecf\u2092\u2105\u2116\u2134\u24aa\u24c4\u24de\u3375\u33c7\u33d2\u33d6\uff2f\uff4f]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;P&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Pp\u1d3e\u1d56\u1e54-\u1e57\u2119\u24ab\u24c5\u24df\u3250\u3371\u3376\u3380\u338a\u33a9-\u33ac\u33b0\u33b4\u33ba\u33cb\u33d7-\u33da\uff30\uff50]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;Q&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Qq\u211a\u24ac\u24c6\u24e0\u33c3\uff31\uff51]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;R&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Rr\u0154-\u0159\u0210-\u0213\u02b3\u1d3f\u1d63\u1e58-\u1e5b\u1e5e\u1e5f\u20a8\u211b-\u211d\u24ad\u24c7\u24e1\u32cd\u3374\u33ad-\u33af\u33da\u33db\uff32\uff52]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;S&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Ss\u015a-\u0161\u017f\u0218\u0219\u02e2\u1e60-\u1e63\u20a8\u2101\u2120\u24ae\u24c8\u24e2\u33a7\u33a8\u33ae-\u33b3\u33db\u33dc\ufb06\uff33\uff53]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;T&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Tt\u0162-\u0165\u021a\u021b\u1d40\u1d57\u1e6a-\u1e71\u1e97\u2121\u2122\u24af\u24c9\u24e3\u3250\u32cf\u3394\u33cf\ufb05\ufb06\uff34\uff54]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;U&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Uu\xd9-\xdc\xf9-\xfc\u0168-\u0173\u01af\u01b0\u01d3\u01d4\u0214-\u0217\u1d41\u1d58\u1d64\u1e72-\u1e77\u1ee4-\u1ee7\u2106\u24b0\u24ca\u24e4\u3373\u337a\uff35\uff55]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;V&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Vv\u1d5b\u1d65\u1e7c-\u1e7f\u2163-\u2167\u2173-\u2177\u24b1\u24cb\u24e5\u2c7d\u32ce\u3375\u33b4-\u33b9\u33dc\u33de\uff36\uff56]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;W&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Ww\u0174\u0175\u02b7\u1d42\u1e80-\u1e89\u1e98\u24b2\u24cc\u24e6\u33ba-\u33bf\u33dd\uff37\uff57]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;X&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Xx\u02e3\u1e8a-\u1e8d\u2093\u213b\u2168-\u216b\u2178-\u217b\u24b3\u24cd\u24e7\u33d3\uff38\uff58]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;Y&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Yy\xdd\xfd\xff\u0176-\u0178\u0232\u0233\u02b8\u1e8e\u1e8f\u1e99\u1ef2-\u1ef9\u24b4\u24ce\u24e8\u33c9\uff39\uff59]&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;Z&#39;</span> <span class="o">:</span> <span class="s1">&#39;[Zz\u0179-\u017e\u01f1-\u01f3\u1dbb\u1e90-\u1e95\u2124\u2128\u24b5\u24cf\u24e9\u3390-\u3394\uff3a\uff5a]&#39;</span>
+</span><span class='line'>	<span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>		<span class="s1">&#39;highlightClass&#39;</span> <span class="o">:</span> <span class="s1">&#39;highlight&#39;</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;partial&#39;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>		<span class="s1">&#39;lenient&#39;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>	<span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="kd">var</span> <span class="nx">methods</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>		<span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="k">if</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>		<span class="p">},</span>
+</span><span class='line'>		<span class="c1">//Highlights all the words that appear on the searchString</span>
+</span><span class='line'>		<span class="nx">highlight</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">searchString</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">searchString</span><span class="p">;</span>
+</span><span class='line'>			<span class="kd">var</span> <span class="nx">lenient</span> <span class="o">=</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">lenient</span><span class="p">;</span>
+</span><span class='line'>			<span class="c1">//If lenient settings then we replace the search string with a regex character class A-&gt;[AaÄäå....]</span>
+</span><span class='line'>			<span class="k">if</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">lenient</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="nx">input</span> <span class="o">=</span> <span class="nx">createAccentRegexp</span><span class="p">(</span><span class="nx">searchString</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>			<span class="c1">//Partial matches are allowed</span>
+</span><span class='line'>			<span class="k">if</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">partial</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="kd">var</span> <span class="nx">inputPattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">),</span> <span class="s1">&#39;ig&#39;</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>				<span class="kd">var</span> <span class="nx">inputPattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;\\b&#39;</span> <span class="o">+</span> <span class="nx">input</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;|\\b&#39;</span><span class="p">),</span> <span class="s1">&#39;ig&#39;</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>			<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>				<span class="c1">//alert(this);</span>
+</span><span class='line'>				<span class="nx">setHighlight</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">inputPattern</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">});</span>
+</span><span class='line'>		<span class="p">},</span>
+</span><span class='line'>		<span class="c1">//Removes all highlights</span>
+</span><span class='line'>		<span class="nx">removeHighlight</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>			<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;span.&quot;</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">highlightClass</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>				<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">nodeName</span>
+</span><span class='line'>				<span class="kd">with</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>					<span class="nx">replaceChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>					<span class="nx">normalize</span><span class="p">();</span>
+</span><span class='line'>				<span class="p">}</span>
+</span><span class='line'>			<span class="p">}).</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>		<span class="p">},</span>
+</span><span class='line'>	<span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">easymark</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>		<span class="c1">// Method calling logic</span>
+</span><span class='line'>		<span class="k">if</span><span class="p">(</span><span class="nx">methods</span><span class="p">[</span><span class="nx">method</span><span class="p">])</span> <span class="p">{</span>
+</span><span class='line'>			<span class="k">return</span> <span class="nx">methods</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;object&#39;</span> <span class="o">||</span> <span class="o">!</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="k">return</span> <span class="nx">methods</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+</span><span class='line'>		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>			<span class="nx">$</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Method &#39;</span> <span class="o">+</span> <span class="nx">method</span> <span class="o">+</span> <span class="s1">&#39; does not exist on jQuery.tooltip&#39;</span><span class="p">);</span>
+</span><span class='line'>		<span class="p">}</span>
+</span><span class='line'>	<span class="p">};</span>
+</span><span class='line'>	<span class="cm">/*******************************</span>
+</span><span class='line'><span class="cm">	 * Private methods</span>
+</span><span class='line'><span class="cm">	 *******************************/</span>
+</span><span class='line'>	<span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>		<span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">console</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+</span><span class='line'>			<span class="nb">window</span><span class="p">.</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+</span><span class='line'>	<span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="kd">function</span> <span class="nx">setHighlight</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">pattern</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>		<span class="kd">var</span> <span class="nx">skip</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>		<span class="c1">// Do this only for text nodes. Else go find child nodes...</span>
+</span><span class='line'>		<span class="k">if</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="kd">var</span> <span class="nx">changed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>			<span class="kd">var</span> <span class="nx">replacement</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">pattern</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="nx">changed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>				<span class="k">return</span> <span class="s2">&quot;&lt;span class=&#39;highlight&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">match</span> <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>			<span class="p">});</span>
+</span><span class='line'>			<span class="k">if</span><span class="p">(</span><span class="nx">changed</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="nx">$</span><span class="p">(</span><span class="nx">node</span><span class="p">).</span><span class="nx">replaceWith</span><span class="p">(</span><span class="nx">replacement</span><span class="p">);</span>
+</span><span class='line'>				<span class="nx">skip</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>			<span class="k">if</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="sr">/(script|style)/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>				<span class="c1">//Check if it has not been highlighted already</span>
+</span><span class='line'>				<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="sr">/(span)/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">node</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">highlightClass</span><span class="p">))))</span> <span class="p">{</span>
+</span><span class='line'>					<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>						<span class="nx">i</span> <span class="o">+=</span> <span class="nx">setHighlight</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">pattern</span><span class="p">);</span>
+</span><span class='line'>					<span class="p">}</span>
+</span><span class='line'>				<span class="p">}</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>		<span class="p">}</span>
+</span><span class='line'>		<span class="k">return</span> <span class="nx">skip</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="cm">/*******************</span>
+</span><span class='line'><span class="cm">	 * Creates a regexp for case- and accent-insensitive matching of a regular</span>
+</span><span class='line'><span class="cm">	 * alphabetic string. For each character in the original string the output</span>
+</span><span class='line'><span class="cm">	 * contains a regexp character class that matches the character itself and all</span>
+</span><span class='line'><span class="cm">	 * unicode variations. So, if the input is &quot;Foo&quot; the function returns</span>
+</span><span class='line'><span class="cm">	 * something like [Ff...][OoÖöÒò..][OoÖöÒò..].</span>
+</span><span class='line'><span class="cm">	 * Inspiration:</span>
+</span><span class='line'><span class="cm">	 * http://stackoverflow.com/questions/227950/programatic-accent-reduction-in-javascript-aka-text-normalization-or-unaccenting</span>
+</span><span class='line'><span class="cm">	 *******************/</span>
+</span><span class='line'>	<span class="kd">function</span> <span class="nx">createAccentRegexp</span><span class="p">(</span><span class="nx">characters</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>		<span class="c1">// Replaces all accented characters.</span>
+</span><span class='line'>		<span class="kd">var</span> <span class="nx">deaccentedString</span> <span class="o">=</span> <span class="nx">deaccent</span><span class="p">(</span><span class="nx">characters</span><span class="p">);</span>
+</span><span class='line'>		<span class="c1">// Escapes all regexp meta characters.</span>
+</span><span class='line'>		<span class="kd">var</span> <span class="nx">cleanString</span> <span class="o">=</span> <span class="nx">deaccentedString</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/([|()[{.+*?^$\\])/g</span><span class="p">,</span> <span class="s2">&quot;\\$1&quot;</span><span class="p">);</span>
+</span><span class='line'>		<span class="kd">var</span> <span class="nx">accentReplacer</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">character</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="k">return</span> <span class="nx">charToAccentedCharClassMap</span><span class="p">[</span><span class="nx">character</span><span class="p">]</span> <span class="o">||</span> <span class="nx">character</span><span class="p">;</span>
+</span><span class='line'>		<span class="p">};</span>
+</span><span class='line'>		<span class="c1">// Matches anything *but* a whitespace and replaces it.</span>
+</span><span class='line'>		<span class="kd">var</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="nx">cleanString</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\S/g</span><span class="p">,</span> <span class="nx">accentReplacer</span><span class="p">);</span>
+</span><span class='line'>		<span class="k">return</span> <span class="nx">regexp</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="cm">/*******************</span>
+</span><span class='line'><span class="cm">	 * Returns a string in which each accented and lower-case character from the</span>
+</span><span class='line'><span class="cm">	 * input is replaced with the respective upper-case base character in the A-Z</span>
+</span><span class='line'><span class="cm">	 * range (e.g. ä-&gt;A, è-&gt;E, å-&gt;A, ë-&gt;E). Hence, the return value for</span>
+</span><span class='line'><span class="cm">	 * &quot;séléction&quot; is &quot;SELECTION&quot;.</span>
+</span><span class='line'><span class="cm">	 *******************/</span>
+</span><span class='line'>	<span class="kd">function</span> <span class="nx">deaccent</span><span class="p">(</span><span class="nx">accentedString</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>		<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">accentedString</span><span class="p">;</span>
+</span><span class='line'>		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">charToAccentedCharClassMap</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">charToAccentedCharClassMap</span><span class="p">[</span><span class="nx">key</span><span class="p">],</span> <span class="s2">&quot;g&quot;</span><span class="p">),</span> <span class="nx">key</span><span class="p">);</span>
+</span><span class='line'>		<span class="p">}</span>
+</span><span class='line'>		<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - isaact -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
