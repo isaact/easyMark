@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Documentation - jquery.easyMark</title>
+  <title>Demo - jquery.easyMark</title>
   <meta name="author" content="isaact">
 
   
-  <meta name="description" content="Documentation Nov 22nd, 2011 An easy to use &#8220;find & highlight&#8221; plugin. You simply pass it a space separated string of words to highlight &hellip;">
+  <meta name="description" content="Demo Nov 22nd, 2011 If
+by Rudyard Kipling If you can keep your head when all about you
+Are losing theirs and blaming it on you;
+If you can trust &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://isaact.github.com/easyMark">
+  <link rel="canonical" href="http://isaact.github.com/easyMark/demo.html">
   <link href="/easyMark/favicon.png" rel="icon">
   <link href="/easyMark/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
@@ -83,7 +86,7 @@ $('#hcontrol form').submit(function(event){
 <article role="article">
   
   <header>
-    <h1 class="entry-title">Documentation</h1>
+    <h1 class="entry-title">Demo</h1>
     <p class="meta">
 
 
@@ -99,25 +102,62 @@ $('#hcontrol form').submit(function(event){
 <time datetime="2011-11-22T19:33:00-06:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2011</time></p>
   </header>
   
-  An easy to use &#8220;find & highlight&#8221; plugin. You simply pass it a space separated string of words to highlight and a target and it will find all occurrences of the words and highlight them.
+  <div id='hcontrol'>
+  <form method='get' action='#'>
+    <input id='search_box_input' type="text" placeholder="Search" results="0" name="q" class="search rounded-box inset">
+    <input type="submit" name="submit" value="highlight!">
+  </form>
+</div>
 
-<figure class='code'><figcaption><span>Highlight:</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#target&quot;</span><span class="p">).</span><span class="nx">easymark</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="s2">&quot;highlight these words&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<poem id='searchPoem'>
+<h2>If</h2>
+<h3>by Rudyard Kipling</h3>
 
-To remove the highlight is equally simple:
+<verse>
+If you can keep your head when all about you
+Are losing theirs and blaming it on you;
+If you can trust yourself when all men doubt you,
+But make allowance for their doubting too;
+If you can wait and not be tired by waiting,
+Or, being lied about, don&#8217;t deal in lies,
+Or, being hated, don&#8217;t give way to hating,
+And yet don&#8217;t look too good, nor talk too wise;
+</verse>
 
-<figure class='code'><figcaption><span>Remove highlight:</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#target&quot;</span><span class="p">).</span><span class="nx">easymark</span><span class="p">(</span><span class="s1">&#39;removeHighlight&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<verse>
+If you can dream - and not make dreams your master;
+If you can think - and not make thoughts your aim;
+If you can meet with triumph and disaster
+And treat those two imposters just the same;
+If you can bear to hear the truth you&#8217;ve spoken
+Twisted by knaves to make a trap for fools,
+Or watch the things you gave your life to broken,
+And stoop and build &#8216;em up with wornout tools;
+</verse>
 
-<figure class='code'><figcaption><span>CSS Styling</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.highlight</span><span class="p">{</span>
-</span><span class='line'>  <span class="k">background-color</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<verse>
+If you can make one heap of all your winnings
+And risk it on one turn of pitch-and-toss,
+And lose, and start again at your beginnings
+And never breath a word about your loss;
+If you can force your heart and nerve and sinew
+To serve your turn long after they are gone,
+And so hold on when there is nothing in you
+Except the Will which says to them: &#8220;Hold on&#8221;;
+</verse>
+
+<verse>
+If you can talk with crowds and keep your virtue,
+Or walk with kings - nor lose the common touch;
+If neither foes nor loving friends can hurt you;
+If all men count with you, but none too much;
+If you can fill the unforgiving minute
+With sixty seconds&#8217; worth of distance run -
+Yours is the Earth and everything that&#8217;s in it,
+And - which is more - you&#8217;ll be a Man my son! 
+</verse>
+</poem>
+
 
   
 </article>
