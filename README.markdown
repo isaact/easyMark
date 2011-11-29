@@ -2,22 +2,26 @@
 
 An easy to use "find & highlight" plugin. You simply pass it a space separated string of words to highlight and a target and it will find all occurrences of the words and highlight them.
 
-```javascript Highlight:
+### Highlighting:
+
+```javascript
 
 $("#target").easymark('highlight', "highlight these words");
 
 ```
 
-To remove the highlight is equally simple:
+### Remove highlight:
 
-```javascript Remove highlight:
+```javascript
 
 $("#target").easymark('removeHighlight');
 
 ```
 
-```css CSS Styling
 
+### Styling:
+
+```css
 .highlight{
   background-color: yellow;
 }
