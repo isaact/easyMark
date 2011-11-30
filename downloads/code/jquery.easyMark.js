@@ -4,6 +4,8 @@
 
  Highlights multiple keywords in a given search area.
 
+ Copyright 2011 Isaac Tewolde for Thoora.com
+
  Based on work by Johann Burkhard & Marcel Stör
 
  Marcel Stör
@@ -12,20 +14,15 @@
  Johann Burkhard
  <http://johannburkard.de/blog/programming/javascript/dynacloud-a-dynamic-javascript-tag-keyword-cloud-with-jquery.html>
 
- Copyright 2011 Isaac Tewolde for Thoora.com
-
  MIT license.
 
  */
 
 /*
- * Highlights the given term in all text nodes (transitive) for which this
- * function is called. If lenient == true the pattern matching will be case- and
- * accent-insensitive. Otherwise it will simply be case-insensitive.
+ * Highlights the given terms in all text nodes.
  */
 
 (function($) {
-alert("yp!");
 	/*
 	 * Map generated from ftp.unicode.org/Public/UNIDATA/UnicodeData.txt. Maps each
 	 * upper-case basic alphabet character in the A-Z range to a regex character
